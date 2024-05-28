@@ -3,8 +3,8 @@ import numpy.linalg as lg
 from math import exp, floor, sin, cos, pi
 import matplotlib.pyplot as plt
 
-from src.utils import trimlist, read_airfoil, position_airfoil
-from src.control import control
+from LovelacePM.utils import trimlist, read_airfoil, position_airfoil
+from LovelacePM.control import control
 
 
 class wing_section:  # class to define wing section based on airfoil info
