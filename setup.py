@@ -99,8 +99,8 @@ setup(
     ],
     python_requires=">=3.11",
     install_requires=[
-        "numpy<2,>=1.16.6",
-        "scipy>=1.12.0",
+        # "numpy<2,>=1.16.6",
+        # "scipy>=1.12.0",
         "numpy-quaternion",
         "func-timeout",
         "matplotlib",
