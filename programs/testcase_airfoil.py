@@ -7,11 +7,11 @@ import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 import time as tm
 
-import pytoolkit
+import src.pytoolkit
 
-from paneller import *
-from utils import *
-from multiprocess_guard import *
+from src.paneller import *
+from src.utils import *
+from src.multiprocess_guard import *
 
 if multiprocess_guard():
     '''
