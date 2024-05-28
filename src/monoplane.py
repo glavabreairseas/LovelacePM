@@ -1,7 +1,7 @@
 import numpy as np
 import os
 from math import *
-from LovelacePM import *
+from src import *
 import matplotlib.pyplot as plt
 
 if multiprocess_guard():
