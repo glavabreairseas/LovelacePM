@@ -19,7 +19,7 @@ if multiprocess_guard():
     '''
 
     xdisc=20
-    airfoil, extra, intra=read_afl('n4412', ext_append=True, remove_TE_gap=True, disc=xdisc, extra_intra=True)
+    airfoil, extra, intra=read_airfoil('n4412', ext_append=True, remove_TE_gap=True, disc=xdisc, extra_intra=True)
     b=2.0
     c=0.3
     Uinf=0.2
