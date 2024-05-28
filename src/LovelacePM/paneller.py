@@ -8,8 +8,8 @@ import time as tm
 import multiprocessing as mp
 import gc
 
-from src import pytoolkit
-from src.utils import (
+from LovelacePM import pytoolkit
+from LovelacePM.utils import (
     PG_vtouni,
     PG_inv_xmult,
     PG_unitov,
