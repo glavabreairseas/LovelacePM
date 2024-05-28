@@ -11,3 +11,5 @@
 /build
 *.lup
 /_skbuild
+.venv
+.eggs
