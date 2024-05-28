@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 import time as tm
 
-from paneller import *
-from utils import *
-from wing import *
-from body import *
-from control import *
-from aircraft import *
-from aerodynamic_output import *
-from multiprocess_guard import *
+from src.LovelacePM.paneller import *
+from src.LovelacePM.utils import *
+from src.LovelacePM.wing import *
+from src.LovelacePM.body import *
+from src.LovelacePM.control import *
+from src.LovelacePM.aircraft import *
+from src.LovelacePM.aerodynamic_output import *
+from src.LovelacePM.multiprocess_guard import *
 
 if multiprocess_guard():
     sld=Solid()

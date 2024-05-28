@@ -8,8 +8,8 @@ from mpl_toolkits import mplot3d
 import time as tm
 import multiprocess as mp
 
-from paneller import *
-from multiprocess_guard import *
+from src.LovelacePM.paneller import *
+from src.LovelacePM.multiprocess_guard import *
 
 '''
 Script to test the Euler solution modules with a generic sphere geometry

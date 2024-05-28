@@ -8,10 +8,10 @@ from mpl_toolkits import mplot3d
 import time as tm
 import numpy.random as rnd
 
-import pytoolkit
+import src.LovelacePM.pytoolkit
 
-from paneller import *
-from multiprocess_guard import *
+from src.LovelacePM.paneller import *
+from src.LovelacePM.multiprocess_guard import *
 
 if multiprocess_guard():
     pan1=rnd.random(12).reshape(3, 4)
