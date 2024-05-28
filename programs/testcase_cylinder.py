@@ -8,13 +8,13 @@ from mpl_toolkits import mplot3d
 import time as tm
 import multiprocess as mp
 
-from paneller import *
-from utils import *
-from wing import *
-from body import *
-from aircraft import *
-from aerodynamic_output import *
-from multiprocess_guard import *
+from src.LovelacePM.paneller import *
+from src.LovelacePM.utils import *
+from src.LovelacePM.wing import *
+from src.LovelacePM.body import *
+from src.LovelacePM.aircraft import *
+from src.LovelacePM.aerodynamic_output import *
+from src.LovelacePM.multiprocess_guard import *
 
 if multiprocess_guard():
     Uinf=1.0
