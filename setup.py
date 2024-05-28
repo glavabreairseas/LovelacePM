@@ -1,41 +1,137 @@
-import setuptools
-#from numpy.distutils.core import Extension
-from numpy.distutils.core import setup
-import os
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+import io
+import re
+import shutil
+from distutils import cmd
+from glob import glob
+from os.path import basename
+from os.path import dirname
+from os.path import join
+from os.path import splitext
 
-vnumber="0.2.5"
+from setuptools import find_packages
+from setuptools import setup
 
-#libraries=[('toolkit', dict(sources=['toolkit.f90']))]
-#extensions=[Extension(name='LovelacePM.toolkit', sources=['LovelacePM/toolkit.f90'], language='f90'), \
-#    Extension(name='LovelacePM.fdyn', sources=['LovelacePM/fdyn.f90'], language='f90')]
+
+def read(*names, **kwargs):
+    with io.open(
+        join(dirname(__file__), *names), encoding=kwargs.get("encoding", "utf8")
+    ) as fh:
+        return fh.read()
+
+
+def version_scheme(version):
+    version_str = str(version.tag)
+    if version.distance is not None and version.distance > 0:
+        version_str += f".dev{version.distance}"
+    if version.dirty:
+        version_str += "+dirty"
+    return version_str
+
+
+def local_scheme(version):
+    return ""
+
+
+class CleanCommand(cmd.Command):
+    """Custom clean command to tidy up the project root."""
+
+    FILES_TO_SEARCH_LIST = ["./build", "./dist", "./*.pyc", "./*.tgz", "./*.egg-info"]
+
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        for files_to_search in self.FILES_TO_SEARCH_LIST:
+            files_to_delete = glob(files_to_search)
+            for file_to_delete in files_to_delete:
+                print(f"Removing {file_to_delete}")
+                shutil.rmtree(file_to_delete)
+
 
 setup(
     name="LovelacePM",
-    version=vnumber,
-    author="Pedro de Almeida Secchi",
-    author_email="pedrosecchimail@gmail.com",
-    description="Python based, open source vortex ring panel method code",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/pedrosecchi67/LovelacePM",
-    packages=['LovelacePM'],
-    package_data={'':['*.dat', 'VERSION_NOTES.txt']},
-    #libraries=libraries,
-    #ext_modules=extensions,
+    use_scm_version={
+        "local_scheme": "dirty-tag",
+        "write_to": "src/LovelacePM/_version.py",
+        "fallback_version": "0.0.0",
+    },
+    description="An example package. Generated with cookiecutter-pylibrary.",
+    long_description="%s"
+    % (
+        re.compile("^.. start-badges.*^.. end-badges", re.M | re.S).sub(
+            "", read("README.md")
+        ),
+    ),
+    author="Guilhem Lavabre",
+    author_email="guilhem.lavabre@airseas.com",
+    url="https://github.com/glavabreairseas/LovelacePM",
+    packages=find_packages("src"),
+    package_dir={"": "src"},
+    py_modules=[splitext(basename(path))[0] for path in glob("src/*.py")],
+    include_package_data=True,
+    zip_safe=False,
     classifiers=[
+        # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "Operating System :: Unix",
+        "Operating System :: POSIX",
+        "Operating System :: Microsoft :: Windows",
+        "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU General Public License (GPL)",
-        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.9",
+        "Topic :: Utilities",
     ],
-    install_requires=['numpy', 'numpy-quaternion', 'func-timeout', 'scipy', 'matplotlib', 'cloudpickle', 'pyqtgraph', 'PyOpenGL', 'LoveUpdate'],
-    python_requires='>=3.11',
+    project_urls={
+        "Issue Tracker": "https://github.com/glavabreairseas/LovelacePM/issues",
+    },
+    keywords=[
+        # eg: 'keyword1', 'keyword2', 'keyword3',
+    ],
+    python_requires=">=3.11",
+    install_requires=[
+        # "numpy-stl",
+        "numpy<2,>=1.16.6",
+        "scipy>=1.12.0",
+        "numpy-quaternion",
+        "func-timeout",
+        "matplotlib",
+        "cloudpickle",
+        "LoveUpdate"
+        # "joblib",
+        # "h5py",
+        # "xmltodict",
+        # "pandas[excel]>=2.2.2",
+        # "pyyaml",
+        # "pyarrow==14.0.2",
+        # "click",
+        # "bezier",
+        # "decorator<5.0,>=4.0.2",
+        # "traitlets==5.14.1",
+        # "nbformat",
+        # "openpyxl==3.1.0",
+    ],
+    extras_require={
+        "dev": [
+            "invoke",
+            "pytest",
+            "tox",
+            "black",
+            "flake8",
+            "twine",
+            "plantuml",
+            "py2puml",
+            "pytest-cov",
+        ]
+    },
+    setup_requires=["setuptools_scm>=3.3.1", "wheel"],
 )
-
-try:
-    import LoveUpdate as lupd
-    lupd.release_note_report(fname='VERSION_NOTES.txt', fdir=os.path.dirname(__file__), program='LovelacePM', version='v'+vnumber)
-except:
-    print('LoveUpdate not yet available for release notes')
