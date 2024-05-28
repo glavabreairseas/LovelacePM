@@ -124,9 +124,9 @@ def position_airfoil(
     airfoil_points_3d *= chord
 
     # Rotation: Sweep, then dihedral, then twist
-    q_sweep = np.quaternion(np.cos(sweep_deg/2), 0, 0, np.sin(sweep_deg/2))
-    q_dihedral = np.quaternion(np.cos(dihedral_deg/2), np.sin(dihedral_deg/2), 0, 0)
-    q_twist = np.quaternion(np.cos(twist_deg/2), 0, np.sin(twist_deg/2), 0)
+    q_sweep = np.quaternion(np.cos(sweep_deg / 2), 0, 0, np.sin(sweep_deg / 2))
+    q_dihedral = np.quaternion(np.cos(dihedral_deg / 2), np.sin(dihedral_deg / 2), 0, 0)
+    q_twist = np.quaternion(np.cos(twist_deg / 2), 0, np.sin(twist_deg / 2), 0)
     q_total = q_sweep * q_dihedral * q_twist
 
     positioned_points = np.zeros_like(airfoil_points_3d)
