@@ -1,12 +1,12 @@
 import numpy.random as rnd
-from src.LovelacePM.wing import wing_section, wing_quadrant, wing
-from src.LovelacePM.body import body, smooth_angle_defsect_function, standard_body, circdefsect
-from src.LovelacePM.aircraft import aircraft
-from src.LovelacePM.paneller import Solid
-from src.LovelacePM.aerodynamic_output import plot_Cps, plot_Cds, plot_Cms, plot_Cls, plot_gammas
-from src.LovelacePM.multiprocess_guard import multiprocess_guard
-from src.LovelacePM.xfoil_visc import polar_correction
-from src.LovelacePM.utils import read_airfoil
+from LovelacePM.wing import wing_section, wing_quadrant, wing
+from LovelacePM.body import body, smooth_angle_defsect_function, standard_body, circdefsect
+from LovelacePM.aircraft import aircraft
+from LovelacePM.paneller import Solid
+from LovelacePM.aerodynamic_output import plot_Cps, plot_Cds, plot_Cms, plot_Cls, plot_gammas
+from LovelacePM.multiprocess_guard import multiprocess_guard
+from LovelacePM.xfoil_visc import polar_correction
+from LovelacePM.utils import read_airfoil
 from math import tan, radians, sin, cos, pi
 import numpy as np
 import os
