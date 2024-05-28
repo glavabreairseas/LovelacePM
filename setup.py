@@ -105,7 +105,7 @@ setup(
         "func-timeout",
         "matplotlib",
         "cloudpickle",
-        "LoveUpdate",
+        # "LoveUpdate",
         "multiprocess",
     ],
     extras_require={
