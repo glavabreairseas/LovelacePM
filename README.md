@@ -29,7 +29,7 @@ For further installation instructions, check out the final section of this READM
 To quickly analysie an ONERA M6 wing, start by importing the package and defining its dimensions. You can then run a simulation as the one below. File 'onerad.dat' should be located in the simulation's directory.
 
 ```
-from LovelacePM import *
+from src.LovelacePM import *
 import numpy as np
 from math import tan, radians
 
@@ -71,7 +71,7 @@ You can also run the case above without any console output using keyword argumen
 in every "aircraft" class method execution. Check out 
 
 ```
-from LovelacePM import *; from LovelacePM.documentation import *
+from src.LovelacePM import *; from src.LovelacePM.documentation import *
 print(aircraft.__doc__)
 ```
 
@@ -150,14 +150,14 @@ fuselage=body(sld, sections=sects)
 To check out the fuselage composed above, use
 
 ```
-from LovelacePM import *; from LovelacePM.monoplane import *
+from src.LovelacePM import *; from src.LovelacePM.monoplane import *
 ```
 
 Note that a function with suffix "defsect" is used in the code above. A defsect is a lambda function that defines a body section based on data simpler than its point-by-point geometry - speciffically, its maximum dimension, center position in 3D space and y and z axis scale factors (to make it easier to transform a tubular into an egg-shape fuselage, if you so desire =D). If you want further info on what is a defsect and how to customize it, check out:
 
 ```
-from LovelacePM import *
-from LovelacePM.documentation import *
+from src.LovelacePM import *
+from src.LovelacePM.documentation import *
 print(body.__doc__)
 ```
 
@@ -176,8 +176,8 @@ body_width=fuselage_width, nose_loc=np.array([-fuselage_aftlen, 0.0, -0.01]))
 For further info, check:
 
 ```
-from LovelacePM import *
-from LovelacePM.documentation import *
+from src.LovelacePM import *
+from src.LovelacePM.documentation import *
 
 help(body)
 help(body_section)
@@ -192,8 +192,8 @@ LovelacePM comes with an automation of Mark Drela's viscous-inviscid Xfoil panel
 To get instructions on how to use this automation for viscous corrections, check out:
 
 ```
-from LovelacePM import *
-from LovelacePM.documentation import *
+from src.LovelacePM import *
+from src.LovelacePM.documentation import *
 
 help(xfoil_visc)
 help(polar_correction)
@@ -243,19 +243,19 @@ This code has been tested according to the test cases reported in Ashok Srivasta
 They consist in the scrips the user can summon with:
 
 ```
-from LovelacePM import *
+from src.LovelacePM import *
 
 #test case for AR 20 NACA 0012 wing at alpha=10 deg
-from LovelacePM.testcase_n0012_AR20 import *
+from src.LovelacePM.testcase_n0012_AR20 import *
 
 #test case for AR 5 NACA 0012 wing rotating at 3 deg/s and advancing at 1 ft/s, at AOA 0
-from LovelacePM.testcase_n0012_rotating import *
+from src.LovelacePM.testcase_n0012_rotating import *
 
 #test case for sphere
-from LovelacePM.testcase_sphere import *
+from src.LovelacePM.testcase_sphere import *
 
 #test case for cilynder
-from LovelacePM.testcase_cilynder import *
+from src.LovelacePM.testcase_cilynder import *
 ```
 
 And compare with references in:

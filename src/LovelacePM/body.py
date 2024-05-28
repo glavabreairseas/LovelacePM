@@ -4,8 +4,8 @@ from math import sin, cos, pi, atan2, floor, sqrt
 import matplotlib.pyplot as plt
 import scipy.interpolate as sinterp
 
-from LovelacePM import pytoolkit
-from LovelacePM.utils import (
+from src.LovelacePM import pytoolkit
+from src.LovelacePM.utils import (
     smooth_angle_defsect_coords,
     trim_polars_array,
     gen_squaredefsect_coords,

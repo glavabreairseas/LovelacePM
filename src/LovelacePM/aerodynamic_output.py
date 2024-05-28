@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import LinearNDInterpolator as LNDI
 
-from LovelacePM.paneller import Solid
+from src.LovelacePM.paneller import Solid
 from matplotlib import axes
 
 

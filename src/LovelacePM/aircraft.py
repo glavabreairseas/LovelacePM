@@ -2,14 +2,14 @@ import numpy as np
 from math import cos, sin, radians, degrees, sqrt, exp
 import matplotlib.pyplot as plt
 
-from LovelacePM import pyfdyn
+from src.LovelacePM import pyfdyn
 
 # import pyfdyn
 
 # from EarhartPM.old_lovelace.paneller import Solid
-from LovelacePM.body import body, Re2e5, Blausius_Cf_l, Prandtl_1_7th
-from LovelacePM.wing import wing
-from LovelacePM.control import control_DOF
+from src.LovelacePM.body import body, Re2e5, Blausius_Cf_l, Prandtl_1_7th
+from src.LovelacePM.wing import wing
+from src.LovelacePM.control import control_DOF
 
 
 class aircraft:  # class to ease certain case studies for full aircraft
