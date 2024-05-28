@@ -1,6 +1,17 @@
-from src.LovelacePM import *
+from LovelacePM.wing import wing_section, wing_quadrant, wing
+from LovelacePM.body import body, smooth_angle_defsect_function
+from LovelacePM.aircraft import aircraft
+from LovelacePM.paneller import Solid
+from LovelacePM.aerodynamic_output import plot_Cps, plot_Cds, plot_Cms, plot_Cls    
+from LovelacePM.multiprocess_guard import multiprocess_guard
+from LovelacePM.xfoil_visc import polar_correction
+from LovelacePM.utils import read_airfoil
+from math import tan, radians, sin, cos, pi
 import numpy as np
-from math import tan, radians
+import os
+import matplotlib.pyplot as plt
+import time as tm
+import numpy.linalg as lg
 
 if multiprocess_guard():
     ordir=os.getcwd()

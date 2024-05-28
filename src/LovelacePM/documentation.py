@@ -1,12 +1,12 @@
-from src.LovelacePM import paneller
-from src.LovelacePM import utils
-from src.LovelacePM import control
-from src.LovelacePM import wing
-from src.LovelacePM import body
-from src.LovelacePM import aircraft
-from src.LovelacePM import xfoil_visc
-from src.LovelacePM import aerodynamic_output
-from src.LovelacePM import multiprocess_guard
+from LovelacePM import paneller
+from LovelacePM import utils
+from LovelacePM import control
+from LovelacePM import wing
+from LovelacePM import body
+from LovelacePM import aircraft
+from LovelacePM import xfoil_visc
+from LovelacePM import aerodynamic_output
+from LovelacePM import multiprocess_guard
 
 multiprocess_guard.__doc__ = """
 

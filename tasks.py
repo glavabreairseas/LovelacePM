@@ -62,7 +62,7 @@ def diagram(c):
 
 @task
 def doc(c, path=r"./docs"):
-    import src.LovelacePM._version as version
+    import LovelacePM._version as version
 
     c.run("pip install pdoc")
     c.run(f'pdoc src/LovelacePM -o "{path}/latest"')
