@@ -99,26 +99,14 @@ setup(
     ],
     python_requires=">=3.11",
     install_requires=[
-        # "numpy-stl",
         "numpy<2,>=1.16.6",
         "scipy>=1.12.0",
         "numpy-quaternion",
         "func-timeout",
         "matplotlib",
         "cloudpickle",
-        "LoveUpdate"
-        # "joblib",
-        # "h5py",
-        # "xmltodict",
-        # "pandas[excel]>=2.2.2",
-        # "pyyaml",
-        # "pyarrow==14.0.2",
-        # "click",
-        # "bezier",
-        # "decorator<5.0,>=4.0.2",
-        # "traitlets==5.14.1",
-        # "nbformat",
-        # "openpyxl==3.1.0",
+        "LoveUpdate",
+        "multiprocess",
     ],
     extras_require={
         "dev": [
