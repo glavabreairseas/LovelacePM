@@ -69,7 +69,9 @@ def plot_quarter_chord_cp(
             plt.show()
 
 
-def plot_Cps(sld: Solid, ax: axes=None, elems: list=[], xlim=[], ylim=[], zlim=[-2.5, 2.5]):
+def plot_Cps(
+    sld: Solid, ax: axes = None, elems: list = [], xlim=[], ylim=[], zlim=[-2.5, 2.5]
+):
     if len(elems) != 0 and sld.runme:
         # fig = plt.figure()  # noqa F841
         showNow = False
