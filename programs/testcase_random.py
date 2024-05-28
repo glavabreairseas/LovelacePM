@@ -1,17 +1,18 @@
-import numpy as np
-import numpy.linalg as lg
-import scipy.linalg as slg
-import scipy.linalg.lapack as slapack
-from math import *
-import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
-import time as tm
 import numpy.random as rnd
-
-import src.LovelacePM.pytoolkit
-
-from src.LovelacePM.paneller import *
-from src.LovelacePM.multiprocess_guard import *
+from src.LovelacePM.wing import wing_section, wing_quadrant, wing
+from src.LovelacePM.body import body, smooth_angle_defsect_function
+from src.LovelacePM.aircraft import aircraft
+from src.LovelacePM.paneller import Solid
+from src.LovelacePM.aerodynamic_output import plot_Cps, plot_Cds, plot_Cms, plot_Cls    
+from src.LovelacePM.multiprocess_guard import multiprocess_guard
+from src.LovelacePM.xfoil_visc import polar_correction
+from src.LovelacePM.utils import read_airfoil
+from math import tan, radians, sin, cos, pi
+import numpy as np
+import os
+import matplotlib.pyplot as plt
+import time as tm
+import numpy.linalg as lg
 
 if multiprocess_guard():
     pan1=rnd.random(12).reshape(3, 4)

@@ -3,10 +3,6 @@ from math import cos, sin, radians, degrees, sqrt, exp
 import matplotlib.pyplot as plt
 
 from src.LovelacePM import pyfdyn
-
-# import pyfdyn
-
-# from EarhartPM.old_lovelace.paneller import Solid
 from src.LovelacePM.body import body, Re2e5, Blausius_Cf_l, Prandtl_1_7th
 from src.LovelacePM.wing import wing
 from src.LovelacePM.control import control_DOF

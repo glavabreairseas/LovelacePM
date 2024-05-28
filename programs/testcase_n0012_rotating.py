@@ -1,9 +1,21 @@
-from src.LovelacePM import *
+from src.LovelacePM.wing import wing_section, wing_quadrant, wing
+from src.LovelacePM.body import body, smooth_angle_defsect_function
+from src.LovelacePM.aircraft import aircraft
+from src.LovelacePM.paneller import Solid
+from src.LovelacePM.aerodynamic_output import plot_Cps, plot_Cds, plot_Cms, plot_Cls    
+from src.LovelacePM.multiprocess_guard import multiprocess_guard
+from src.LovelacePM.xfoil_visc import polar_correction
+from src.LovelacePM.utils import read_airfoil
+from math import tan, radians, sin, cos, pi
 import numpy as np
+import os
+import matplotlib.pyplot as plt
+import time as tm
+import numpy.linalg as lgp
 
 if multiprocess_guard():
-    ordir=os.getcwd()
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    # ordir=os.getcwd()
+    # os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     #test case to compare with PMARC's test case of a rotating AR 5 NACA 0012 wing
 
@@ -34,4 +46,4 @@ if multiprocess_guard():
 
     acft.plotgeometry()
 
-    os.chdir(ordir)
+    # os.chdir(ordir)
