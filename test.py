@@ -1,4 +1,4 @@
-from LovelacePM import *
+from src import *
 import numpy as np
 
 b=1.1963; croot=0.806; taper=0.56; sweep=26.7

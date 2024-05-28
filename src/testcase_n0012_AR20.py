@@ -1,4 +1,4 @@
-from LovelacePM import *
+from src import *
 import numpy as np
 
 if multiprocess_guard():
