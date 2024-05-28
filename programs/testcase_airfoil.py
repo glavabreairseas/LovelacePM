@@ -18,7 +18,7 @@ if multiprocess_guard():
     '''
 
     xdisc=20
-    airfoil, extra, intra=read_airfoil('n4412', ext_append=True, remove_TE_gap=True, disc=xdisc, extra_intra=True)
+    airfoil, extra, intra=read_airfoil(airfoil_database='resources/airfoil_database', airfoil='n4412', n_points_per_airfoil_side=xdisc, remove_trailing_edge_gap=True, extra_intra=True)
     b=2.0
     c=0.3
     Uinf=0.2
@@ -38,7 +38,6 @@ if multiprocess_guard():
     sld=Solid(sldlist=[totlist], wraparounds=[[1]])
     sld.end_preprocess()
     sld.genwakepanels(wakecombs=conlist, a=radians(5.0))
-    sld.plotgeometry(ylim=[-b/2, b/2], xlim=[-b/2, b/2], zlim=[-b/2, b/2])
     t=tm.time()
     sld.genvbar(Uinf, a=radians(5.0))
     sld.gennvv()
@@ -50,8 +49,6 @@ if multiprocess_guard():
     sld.solve(damper=0.001)
     sld.calcpress(Uinf=Uinf)
     print('Solution and post-processing: '+str(tm.time()-t))
-    sld.plotgeometry(ylim=[-b/2, b/2], xlim=[-b/2, b/2], zlim=[-b/2, b/2])
-    #sld.plotgeometry()
 
     xlocs1=[]
     ylocs1=[]

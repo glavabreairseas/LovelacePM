@@ -9,9 +9,9 @@ b=1.1963; croot=0.806; taper=0.56; sweep=26.7
 
 sld=Solid()
 
-root_sect=wing_section(afl='onerad', c=croot, xdisc=30, sweep=sweep) #CA_position set to origin as default
-left_tip_sect=wing_section(afl='onerad', c=croot*taper, CA_position=np.array([b*tan(radians(sweep)), -b, 0.0]), closed=True, xdisc=30, sweep=sweep)
-right_tip_sect=wing_section(afl='onerad', c=croot*taper, CA_position=np.array([b*tan(radians(sweep)), b, 0.0]), closed=True, xdisc=30, sweep=sweep)
+root_sect=wing_section(airfoil='onerad', chord=croot, n_points_per_side=30, sweep_deg=sweep) #center_position set to origin as default
+left_tip_sect=wing_section(airfoil='onerad', chord=croot*taper, center_position=np.array([b*tan(radians(sweep)), -b, 0.0]), closed=True, n_points_per_side=30, sweep_deg=sweep)
+right_tip_sect=wing_section(airfoil='onerad', chord=croot*taper, center_position=np.array([b*tan(radians(sweep)), b, 0.0]), closed=True, n_points_per_side=30, sweep_deg=sweep)
 
 left_wingquad=wing_quadrant(sld, sect1=left_tip_sect, sect2=root_sect)
 right_wingquad=wing_quadrant(sld, sect1=root_sect, sect2=right_tip_sect)
@@ -23,7 +23,6 @@ acft.edit_parameters({'a':alpha, 'Uinf':Uinf, 'M':0.5})
 
 wng.patchcompose(ydisc=50)
 acft.addwake()
-acft.plotgeometry()
 
 acft.eulersolve()
 acft.forces_report()

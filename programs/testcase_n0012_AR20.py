@@ -30,9 +30,8 @@ if multiprocess_guard():
     n0012_visc=polar_correction('n0012', aseq=[-5.0, 5.0, 0.5])
 
     sld=Solid()
-
-    sl=wing_section(afl='n0012', c=c, CA_position=np.array([0.0, -b/2, 0.0]), xdisc=30, closed=True, correction=n0012_visc, Re=Re)
-    sr=wing_section(afl='n0012', c=c, CA_position=np.array([0.0, b/2, 0.0]), xdisc=30, closed=True, correction=n0012_visc, Re=Re)
+    sl=wing_section(airfoil='n0012', chord=c, center_position=np.array([0.0, -b/2, 0.0]), n_points_per_side=30, closed=True, correction=n0012_visc, Reynolds=Re)
+    sr=wing_section(airfoil='n0012', chord=c, center_position=np.array([0.0, b/2, 0.0]), n_points_per_side=30, closed=True, correction=n0012_visc, Reynolds=Re)
     wngqd=wing_quadrant(sld, sect1=sl, sect2=sr)
     wng=wing(sld, wingquads=[wngqd])
     acft=aircraft(sld, elems=[wng])

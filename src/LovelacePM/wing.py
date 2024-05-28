@@ -28,7 +28,7 @@ class wing_section:  # class to define wing section based on airfoil info
         correction=None,
         Reynolds=2e6,
         remove_trailing_edge_gap=True,
-        is_lovelace=False,
+        is_lovelace=True,
     ):
 
         # closed: return camberline as set of points. for closing wings
