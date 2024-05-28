@@ -1,17 +1,16 @@
+from src.LovelacePM.wing import wing_section, wing_quadrant, wing
+from src.LovelacePM.body import body, smooth_angle_defsect_function
+from src.LovelacePM.aircraft import aircraft
+from src.LovelacePM.paneller import Solid
+from src.LovelacePM.aerodynamic_output import plot_Cps
+from src.LovelacePM.multiprocess_guard import multiprocess_guard
+from src.LovelacePM.xfoil_visc import polar_correction
+from src.LovelacePM.utils import read_airfoil
+from math import tan, radians
 import numpy as np
-import numpy.linalg as lg
-import scipy.linalg as slg
-import scipy.linalg.lapack as slapack
-from math import *
+import os
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 import time as tm
-
-import src.LovelacePM.pytoolkit
-
-from src.LovelacePM.paneller import *
-from src.LovelacePM.utils import *
-from src.LovelacePM.multiprocess_guard import *
 
 if multiprocess_guard():
     '''

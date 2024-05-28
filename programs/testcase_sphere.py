@@ -1,15 +1,18 @@
+import numpy.random as rnd
+from src.LovelacePM.wing import wing_section, wing_quadrant, wing
+from src.LovelacePM.body import body, smooth_angle_defsect_function
+from src.LovelacePM.aircraft import aircraft
+from src.LovelacePM.paneller import Solid
+from src.LovelacePM.aerodynamic_output import plot_Cps, plot_Cds, plot_Cms, plot_Cls, plot_gammas
+from src.LovelacePM.multiprocess_guard import multiprocess_guard
+from src.LovelacePM.xfoil_visc import polar_correction
+from src.LovelacePM.utils import read_airfoil
+from math import tan, radians, sin, cos, pi
 import numpy as np
-import numpy.linalg as lg
-import scipy.linalg as slg
-import scipy.linalg.lapack as slapack
-from math import *
+import os
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 import time as tm
-import multiprocess as mp
-
-from src.LovelacePM.paneller import *
-from src.LovelacePM.multiprocess_guard import *
+import numpy.linalg as lg
 
 '''
 Script to test the Euler solution modules with a generic sphere geometry

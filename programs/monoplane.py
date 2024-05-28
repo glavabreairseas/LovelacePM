@@ -1,7 +1,13 @@
+from src.LovelacePM.wing import wing_section, wing_quadrant, wing
+from src.LovelacePM.body import body, smooth_angle_defsect_function
+from src.LovelacePM.aircraft import aircraft
+from src.LovelacePM.paneller import Solid
+from src.LovelacePM.aerodynamic_output import plot_Cps
+from src.LovelacePM.multiprocess_guard import multiprocess_guard
+from src.LovelacePM.xfoil_visc import polar_correction
+from math import tan, radians
 import numpy as np
 import os
-from math import *
-from src.LovelacePM import *
 import matplotlib.pyplot as plt
 
 if multiprocess_guard():

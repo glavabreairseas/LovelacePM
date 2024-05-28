@@ -1,5 +1,9 @@
-from src.LovelacePM import *
+from src.LovelacePM.wing import wing_section, wing_quadrant, wing
+from src.LovelacePM.aircraft import aircraft
+from src.LovelacePM.paneller import Solid
+from src.LovelacePM.aerodynamic_output import plot_Cps, plot_Cds, plot_Cls, plot_Cms
 import numpy as np
+from math import tan, radians
 
 b=1.1963; croot=0.806; taper=0.56; sweep=26.7
 
